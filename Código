@@ -1,0 +1,42 @@
+
+#O mini projeto foi feito por:
+#Tárik Moussa Alma - RM: 571411
+#Fábricio Aquiles - RM: 570985
+#Giovanne Dias - RM: 569750
+
+print("Início do antendimento")
+quantidade = int(input("Quantos chamados deseja analisar?"))
+for chamado in range (1,quantidade+1):
+    print("Chamado", chamado)
+    print("Executar a classificação")
+
+#Entrada de dados.
+severidade_do_problema = int(input("Dígite a severidade do problema (1 a 3): "))
+quantidade_de_horas = int(input("Digíte a quantas horas o chamado está em aberto: "))
+usuarios_afetados = int(input("Digíte a quantidade de usuários afetados pelo problema: "))
+ambiente = input("Digite o ambiente (produção ou teste): ").lower()
+
+#Classificação de prioridades.
+if severidade_do_problema == 3 and (ambiente == "produção"  or ambiente == "producao"):
+    prioridade = "Crítica"
+elif severidade_do_problema == 3 or usuarios_afetados > 100:
+    prioridade = "Alta"
+elif severidade_do_problema == 2 or quantidade_de_horas > 4:
+    prioridade = "Média"
+else:
+    prioridade = "Baixa"
+
+#O que fazer baseado na prioridade.
+if prioridade == "Crítica":
+    acao = "Acionar plantão imediatamente!!"
+elif prioridade == "Alta":
+    acao = "Iremos te encaminhar para a equipe responsável."
+elif prioridade == "Média":
+    acao = "Se registre e acompanhe."
+else:
+    acao = "Colocar na fila de atendimento."
+
+#Saída de Dados.
+print("\n             ----Resultado----")
+print(f"Prioridade: {prioridade}")
+print(f"Ação Recomendada: {acao}")
