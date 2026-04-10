@@ -4,6 +4,8 @@
 #Fábricio Aquiles - RM: 570985
 #Giovanne Dias - RM: 569750
 
+chamadosCriticos = 0
+
 print("Início do antendimento")
 quantidade = int(input("Quantos chamados deseja analisar?"))
 for chamado in range (1,quantidade+1):
@@ -19,6 +21,7 @@ for chamado in range (1,quantidade+1):
     #Classificação de prioridades.
     if severidade_do_problema == 3 and (ambiente == "produção"  or ambiente == "producao"):
         prioridade = "Crítica"
+        chamadosCriticos +=1
     elif severidade_do_problema == 3 or usuarios_afetados > 100:
         prioridade = "Alta"
     elif severidade_do_problema == 2 or quantidade_de_horas > 4:
@@ -40,3 +43,5 @@ for chamado in range (1,quantidade+1):
     print("\n             ----Resultado----")
     print(f"Prioridade: {prioridade}")
     print(f"Ação Recomendada: {acao}")
+
+print (f"Quantidade de chamados críticos:{chamadosCriticos}")
